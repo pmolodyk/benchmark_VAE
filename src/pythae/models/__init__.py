@@ -42,6 +42,7 @@ from .vae_lin_nf import VAE_LinNF, VAE_LinNF_Config
 from .vamp import VAMP, VAMPConfig
 from .vq_vae import VQVAE, VQVAEConfig
 from .wae_mmd import WAE_MMD, WAE_MMD_Config
+from .vae_latreg import VAELR, VAELRConfig
 
 __all__ = [
     "AutoModel",
@@ -52,6 +53,7 @@ __all__ = [
     "WAE_MMD",
     "WAE_MMD_Config",
     "VAE",
+    "VAE_LR",
     "VAEConfig",
     "BetaVAE",
     "BetaVAEConfig",

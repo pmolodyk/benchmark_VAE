@@ -58,6 +58,7 @@ ap.add_argument(
         "vae_nf",
         "vae_iaf",
         "vae_lin_nf",
+        "vae_latreg"
     ],
     required=True,
 )
@@ -294,6 +295,23 @@ def main(args):
         model_config.input_dim = data_input_dim
 
         model = VAE(
+            model_config=model_config,
+            encoder=Encoder_VAE(model_config),
+            decoder=Decoder_AE(model_config),
+        )
+
+    elif args.model_name == "vae_latreg":
+        from pythae.models import VAELR, VAELRConfig
+
+        if args.model_config is not None:
+            model_config = VAELRConfig.from_json_file(args.model_config)
+
+        else:
+            model_config = VAELRConfig()
+
+        model_config.input_dim = data_input_dim
+
+        model = VAELR(
             model_config=model_config,
             encoder=Encoder_VAE(model_config),
             decoder=Decoder_AE(model_config),
